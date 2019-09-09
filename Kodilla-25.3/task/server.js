@@ -23,7 +23,7 @@ app.post('/updateNote/:note', function(req, res) {
   });
 });
 
-app.use(function(req, res, next) {
+app.use(function(req, res) {
   res.status(404).send('Error 404 - resource not found');
 });
 
