@@ -5,6 +5,8 @@ const app = express();
 let stringifyFile = '';
 
 // tworzenie kopii zapasowej
+// ROZWIĄZANIE NIE JEST DOBRĄ PRAKTYKĄ!
+// NIE STOSUJE SIĘ METOD SYNCHRONICZNYCH PODCZAS PRZETWARZANIA PRZYCHODZĄCYCH ŻĄDAŃ OD KLIENTA
 let fileBackup = fs.readFileSync('./test.json', 'utf8');
 app.use(bodyParser.json());
 
@@ -26,6 +28,8 @@ app.post('/updateNote/:note', function(req, res) {
 });
 
 // endopoint do robienia backupu
+// ROZWIĄZANIE NIE JEST DOBRĄ PRAKTYKĄ!
+// NIE STOSUJE SIĘ METOD SYNCHRONICZNYCH PODCZAS PRZETWARZANIA PRZYCHODZĄCYCH ŻĄDAŃ OD KLIENTA
 let fileToCheck = '';
 app.post('/backup', function(req, res) {
   fileToCheck = fs.readFileSync('./test.json', 'utf8');
