@@ -5,9 +5,14 @@ const app = express();
 let stringifyFile = '';
 
 // tworzenie kopii zapasowej
-// ROZWIĄZANIE NIE JEST DOBRĄ PRAKTYKĄ!
-// NIE STOSUJE SIĘ METOD SYNCHRONICZNYCH PODCZAS PRZETWARZANIA PRZYCHODZĄCYCH ŻĄDAŃ OD KLIENTA
-let fileBackup = fs.readFileSync('./test.json', 'utf8');
+let fileBackup = '';
+if (fileBackup === '') {
+  fs.readFile('./test.json', 'utf8', function(err, data) {
+    if (err) throw err;
+    fileBackup = data;
+  });
+}
+
 app.use(bodyParser.json());
 
 app.get('/getNote', function(req, res) {
@@ -28,11 +33,11 @@ app.post('/updateNote/:note', function(req, res) {
 });
 
 // endopoint do robienia backupu
-// ROZWIĄZANIE NIE JEST DOBRĄ PRAKTYKĄ!
-// NIE STOSUJE SIĘ METOD SYNCHRONICZNYCH PODCZAS PRZETWARZANIA PRZYCHODZĄCYCH ŻĄDAŃ OD KLIENTA
 let fileToCheck = '';
 app.post('/backup', function(req, res) {
-  fileToCheck = fs.readFileSync('./test.json', 'utf8');
+  fs.readFile('./test.json', 'utf8', function(err, data) {
+    if (err) throw err;
+    fileToCheck = data;
     if (fileToCheck != fileBackup) {
       res.send('File backed up!');
       fs.writeFile('./test.json', fileBackup, function(err) {
@@ -43,6 +48,7 @@ app.post('/backup', function(req, res) {
       res.send('File has original content!');
     }
   });
+});
 
 app.use(function(req, res, next) {
   res.status(404).send('Error 404 - resource not found');
