@@ -10,3 +10,6 @@
 * 403 - forbidden - żądanie jest poprawne, jednak serwer odmawia odpowiedzi, może to wystąpić w przypadku gdy np. użytkownik jest zalogowany ale nie ma uprawnień do wykonania żądania
 * 404 - not found - zasoby nie zostały znalezione
 * 500 - internal server error - występuje gdy występują nieznane warunki i nie ma żadnej konkretnej wiadomości
+
+## Ważne 
+Nie używamy metod synchronicznych `Sync` podczas przetwarzania przychodzących żądań od klienta 
