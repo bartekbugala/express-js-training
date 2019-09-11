@@ -13,3 +13,11 @@
 
 ## Ważne 
 Nie używamy metod synchronicznych `Sync` podczas przetwarzania przychodzących żądań od klienta 
+
+## Funkcje - Express.js Application (web server)
+* app.use() - middleware (cookieParser, bodyParser, logger, authentication, ...)
+* app.get() - route handler
+* req.params {uid: '143',...}
+* app.params() - route middleware
+* loadUser() - route middleware
+* res.render() - route handler
