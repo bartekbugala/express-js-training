@@ -1,0 +1,15 @@
+include ./header.pug
+body.bg-dark
+  div.bg-dark.container-fluid.text-center
+    div.bg-light.container.text-center.login-box
+      img.logo-img(src="https://www.pinclipart.com/picdir/big/134-1347779_new-images-2018-google-clip-art-transparent-backgrounds.png" alt="logo")
+      h5.text-dark Sign in with your Google Account
+      div.bg-secondary.container.p-10.inner-login
+        img.avatar-img(src="https://www.freepngimg.com/download/google/66726-customer-account-google-service-button-search-logo.png" alt="avatar")
+        form
+          label
+            input(placeholder="Email")
+          label
+            input(placeholder="Password") 
+          a.btn-primary.btn-lg(role="button",type="submit", href="/auth/google") Login
+include ./footer.pug
