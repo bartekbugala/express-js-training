@@ -1,0 +1,9 @@
+include ./header.pug
+body
+    div.container-fluid.text-center
+        div.jumbotron(style="margin: 10px 50px;")
+            if(user)
+                h2 Hi, #{user.name}
+            else
+                a(href="/sign_up") Sign Up
+include ./footer.pug

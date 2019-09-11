@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 
 app.set('view engine', 'pug');
-app.set('views','./views');
+app.set('views', './views');
 
-app.use('/store', function(req, res, next){
+app.use('/store', function (req, res, next) {
     console.log('Jestem pośrednikiem przy żądaniu do /store');
     next();
 });
@@ -22,19 +22,24 @@ app.get('/vendor/bootstrap.min.css', function (req, res) {
     res.sendFile('./vendor/bootstrap.min.css', { root: __dirname });
 });
 
-app.get('/dynamic-view', function(req, res){
-    res.render('dynamic', {
+app.get('/dynamic-view', function (req, res) {
+    res.render('dynamic-view', {
         name: "Moja dynamiczna strona",
         url: "http://www.google.com"
     });
 });
 
-app.get('first-template', function (req, res) {
+app.get('/first-template', function (req, res) {
     res.render('first-template');
 })
 
-app.get('/first-template', function(req, res){
-    res.render('first-template');
+app.get('/dynamic-user', function (req, res) {
+    res.render('dynamic-user',
+        {
+            user:
+                { name: 'Jim', age: '22' }
+        }
+    );
 });
 
 app.listen(3000);
