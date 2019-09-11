@@ -1,0 +1,26 @@
+.login-box {
+    width: 350px;
+    padding: 20px;
+}
+.inner-login {
+    padding: 20px;
+}
+.logo-img,
+.avatar-img {
+    display: block;
+    max-width: 100px;
+    height: auto;
+    margin: 0 auto;
+}
+label, input {
+    display: block;
+    margin-bottom: 60px;
+    height: 50px;
+    margin: 5px auto;
+}
+a[class^="btn-"] {
+    display: block;
+    width: 200px;
+    margin: 10px auto;
+    text-decoration: none;
+}
