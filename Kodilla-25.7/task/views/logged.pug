@@ -1,0 +1,12 @@
+include ./header.pug
+  title Logged
+body
+  div.container.pt-4.text-center
+    h2 Hello, #{user.displayName}! You logged to google.
+    h4 If you want to check your email click on the envelope
+      div.container
+        a(href="https://www.google.com/gmail/")
+          img.logo-img(src="./Gmail_Icon.png" alt="gmail image")
+    h4 If you want to logout from google #[span.font-weight-bold.text-danger services], click 'Logout'
+        a.btn-primary.btn-lg.text-center(role='button' href="https://accounts.google.com/logout") Logout
+include ./footer.pug
