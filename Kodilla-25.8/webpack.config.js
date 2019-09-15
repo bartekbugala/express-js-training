@@ -2,43 +2,42 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/main.js',
-    output: {
-        path: path.join(__dirname, '/bundle'),
-        filename: 'index_bundle.js'
-    },
-    devServer: {
-        inline: true,
-        port: 8001
-    },
-    module: {
-        rules: [
-            {
-                test: /\.jsx?$/,
-                //test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                }
-
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    { loader: 'style-loader' },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true
-                        }
-                    }
-                ]
+  entry: './src/main.js',
+  output: {
+    path: path.join(__dirname, '/bundle'),
+    filename: 'index_bundle.js'
+  },
+  devServer: {
+    inline: true,
+    port: 8001
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        //test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
             }
+          }
         ]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './index.html'
-        })
+      }
     ]
-}
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html'
+    })
+  ]
+};
