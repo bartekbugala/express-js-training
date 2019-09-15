@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Board from './Board.js'
 import sudoku from 'sudoku-umd';
-let initialBoard;
+
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            initialBoard: '',
             currentBoard: ''
         }
         
@@ -16,23 +17,23 @@ class App extends Component {
     }
     //check() { }
     newGame() {
-        initialBoard = sudoku.generate('easy').split('').map(tile => tile === '.'?'':tile);
+        const generatedBoard = sudoku.generate('easy');
         this.setState({
-            currentBoard: initialBoard
+            initialBoard: generatedBoard,
+            currentBoard: generatedBoard
         })
     }
     //solve() { }
     restart() {
-
         this.setState({
-            currentBoard: initialBoard
-        },()=>{console.log('restart'+initialBoard)})
+            currentBoard: this.state.initialBoard
+        })
     }
 
     handleChange(updatedBoard) {
                  this.setState({
                      currentBoard: updatedBoard
-                 },()=>{console.log('handleChange'+this.state.currentBoard)}) 
+                 }) 
             }
 
     render() {

@@ -10,13 +10,16 @@ class Board extends Component {
     }
     
      handleChange(tileId,event) {
-         let boardArray = this.props.board;
+         let boardArray = this.props.board.split('').map(tile => tile === '.'?'':tile);
          boardArray[tileId-2] = event;
-         this.props.handleChange(boardArray);
+         boardArray = boardArray.map(tile=>tile===''?'.':tile)
+         let boardString = boardArray.join('');
+         this.props.handleChange(boardString);
     }
 
     createTiles() {
-        let currentBoard = Array.from(this.props.board);
+        let currentBoard = this.props.board;
+        currentBoard = currentBoard.split('').map(tile => tile === '.'?'':tile);
         tileId = 1;
         let tiles = currentBoard.map(element => <Tile key={tileId++} inputValue={element} handleChange={this.handleChange.bind(this,tileId)}/>)
         
