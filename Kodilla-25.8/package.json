@@ -11,7 +11,7 @@
     "inst:react": "npm install --save react react-dom",
     "inst:dev:react": "npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-core babel-loader babel-preset-env babel-preset-react",
     "inst:dev:babel": "npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-core babel-loader babel-preset-env babel-preset-react",
-    "inst:dev:webpack": "npm install --save-dev webpack html-webpack-plugin webpack-cli webpack-dev-server"
+    "inst:dev:webpack": "npm install --save-dev webpack html-webpack-plugin webpack-cli webpack-dev-server style-loader css-loader"
   },
   "author": "BB",
   "license": "MIT",
@@ -28,7 +28,9 @@
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.0.0",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.0"
