@@ -15,7 +15,7 @@ class App extends Component {
     this.restart = this.restart.bind(this);
     this.solve = this.solve.bind(this);
     this.check = this.check.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeApp = this.handleChangeApp.bind(this);
   }
   check() {
     const solvedBoard = sudoku.solve(this.state.initialBoard);
@@ -47,7 +47,7 @@ class App extends Component {
     });
   }
 
-  handleChange(updatedBoard) {
+  handleChangeApp(updatedBoard) {
     this.setState({
       currentBoard: updatedBoard
     });
@@ -57,7 +57,7 @@ class App extends Component {
     return (
       <div>
         <h1>Sudoku</h1>
-        <Board board={this.state.currentBoard} handleChange={this.handleChange} />
+        <Board board={this.state.currentBoard} initialBoard={this.state.initialBoard} handleChange={this.handleChangeApp} />
         <div className="buttons">
           <button onClick={this.check}>Check</button>
           <button onClick={this.newGame}>New Game</button>

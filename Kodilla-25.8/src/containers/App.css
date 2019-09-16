@@ -36,5 +36,8 @@ label:nth-of-type(46) input,
 label:nth-of-type(55) input,
 label:nth-of-type(64) input,
 label:nth-of-type(73) input {
-  background: lightblue;
+  
+}
+.fixed-tile {
+  background-color: #add8e6;
 }
