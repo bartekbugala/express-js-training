@@ -1,0 +1,38 @@
+{
+  "name": "sudoku",
+  "version": "1.0.0",
+  "description": "sudoku",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production",
+    "inst-run-all": "npm install --save-dev npm-run-all",
+    "inst": "npm-run-all inst:* inst:dev:*",
+    "inst:react": "npm install --save react react-dom",
+    "inst:dev:react": "npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-core babel-loader babel-preset-env babel-preset-react",
+    "inst:dev:babel": "npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-core babel-loader babel-preset-env babel-preset-react",
+    "inst:dev:webpack": "npm install --save-dev webpack html-webpack-plugin webpack-cli webpack-dev-server style-loader css-loader"
+  },
+  "author": "BB",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "sudoku-umd": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
+  }
+}
